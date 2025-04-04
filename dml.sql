@@ -121,5 +121,77 @@ INSERT INTO Address (Address, idCity) VALUES
     ('Av. Las Palmas #101-15', 5),  
     ('Calle 77 #50-99', 4),  
     ('Carrera 40 #20-80', 5);
-      
+    
+INSERT INTO Campus (CampusName) VALUES
+    ('Campus Zona Franca'),
+    ('Campus Puerta del sol'),
+    ('Campus Rolos'),
+    ('Campus Guerrillos'),
+    ('Campus llano');
+
+INSERT INTO CampusAddress (idCampus, idAddress) VALUES
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5);
+
+-- Inserts para Parents
+
+INSERT INTO Parent (IdNumber,Name, LastName, Telephone) VALUES
+    ('1234567795','Carlos', 'Gómez', '3012345678'),
+    ('1234567895','María', 'López', '3023456789'),
+    ('1234562295','Juan', 'Martínez', '3034567890'),
+    ('1234561195','Ana', 'Rodríguez', '3045678901'),
+    ('1234067895','Luis', 'Fernández', '3056789012');
+
+-- Inserts para Campers y Trainers
+
+INSERT INTO Campers (IdNumber, Name, LastName, RegistrationDate, idRiskLevel, idCamperStatus, idParent, idLearningPath) VALUES
+    ('1001234512', 'Andrés', 'Pérez', '2005-04-10', 2, 2, 1, 1),
+    ('1002234512', 'Sofía', 'Martínez', '2006-06-12', 3, 3, 2, 2),
+    ('1003234512', 'Mateo', 'González', '2004-07-15', 1, 4, 3, 3),
+    ('1004234512', 'Valentina', 'Ramírez', '2005-09-20', 2, 2, 4, 1),
+    ('1005234512', 'Daniel', 'Torres', '2006-11-25', 3, 3, 5, 2);
+
+INSERT INTO Trainers (Name, LastName, IdNumber, idCampus) VALUES
+    ('Javier', 'Sánchez','1006234512', 1),
+    ('Mónica', 'Díaz','1007234512', 2),
+    ('Fernando', 'Castro','1008234512', 3),
+    ('Paola', 'Hernández','1009234512', 4),
+    ('Ricardo', 'Moreno','1006534512', 5);
+
+-- Sesiones comunes para todos los Learning Paths
+INSERT INTO Sessions (idModule, Date, Topic) VALUES
+(1, '2025-01-10', 'Algoritmos y pseudocódigo'),
+(1, '2025-01-12', 'Tipos de datos y operadores'),
+(2, '2025-01-15', 'HTML y estructura básica'),
+(2, '2025-01-17', 'CSS y estilos básicos');
+
+-- Java Path (idLearningPath = 1)
+INSERT INTO Sessions (idModule, Date, Topic) VALUES
+(3, '2025-01-20', 'Estructuras de control en Java'),
+(4, '2025-01-22', 'MySQL y JDBC'),
+(5, '2025-01-25', 'APIs con Spring Boot');
+
+-- JavaScript Path (idLearningPath = 2)
+INSERT INTO Sessions (idModule, Date, Topic) VALUES
+(3, '2025-01-20', 'Closures y promesas'),
+(4, '2025-01-22', 'MongoDB y Mongoose'),
+(5, '2025-01-25', 'Express y desarrollo de REST APIs');
+
+-- C# Path (idLearningPath = 3)
+INSERT INTO Sessions (idModule, Date, Topic) VALUES
+(3, '2025-01-20', 'LINQ y estructuras'),
+(4, '2025-01-22', 'SQL Server y Entity Framework'),
+(5, '2025-01-25', 'ASP.NET Core y MVC');
+
+INSERT INTO `Group` (idLearningPath, GroupName, StartDate) VALUES
+(1, 'J1', '2025-01-10'),
+(1, 'J2', '2025-01-12'),
+(2, 'M1', '2025-01-14'),
+(2, 'M2', '2025-01-16'),
+(3, 'C1', '2025-01-18'),
+(3, 'C2', '2025-01-20');
+
 
